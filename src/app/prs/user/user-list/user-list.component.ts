@@ -10,6 +10,16 @@ import { User } from '../user.class';
 export class UserListComponent implements OnInit {
 
   users: User[] = [];
+  sortCriteria: string = "lastname";
+  sortOrder: string = "desc";
+  searchCriteria: string = "";
+
+  sortBy(prop: string): void {
+    if(this.sortCriteria === prop) {
+      this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
+    }
+    this.sortCriteria = prop;
+  }
 
   constructor(
     private usersvc: UserService

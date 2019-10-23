@@ -1,0 +1,40 @@
+<!-- <app-menu></app-menu>
+<div class="component">
+  <div class="header">
+  <span class="pagetitle">Vendor List</span> |
+  <span class="createlink">
+    <a routerLink="/vendors/create">CREATE</a>
+  </span> |
+  <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
+  <hr>
+  </div>
+  <table class="table table-sm">
+    <tr class="tableheader">
+      <td><a (click)="sortBy('id')">Id</a></td>
+      <td><a (click)="sortBy('code')">Code</a></td>
+      <td><a (click)="sortBy('name')">Name</a></td>
+      <td><a (click)="sortBy('address')">Address</a></td>
+      <td><a (click)="sortBy('city')">City</a></td>
+      <td><a (click)="sortBy('state')">State</a></td>
+      <td><a (click)="sortBy('zip')">Zip</a></td>
+      <td>Actions</td>
+    </tr>
+    <tr *ngFor="let vendor of vendors | searchVendors:searchCriteria | sort:sortCriteria:sortOrder">
+      <td>{{vendor.id}}</td>
+      <td>{{vendor.code}}</td>
+      <td>{{vendor.name}}</td>
+      <td>{{vendor.address}}</td>
+      <td>{{vendor.city}}</td>
+      <td>{{vendor.state}}</td>
+      <td>{{vendor.zip}}</td>
+      <td>
+        <span class="actions">
+          <a routerLink="/vendors/detail/{{vendor.id}}">Detail</a> |
+          <a routerLink="/vendors/edit/{{vendor.id}}">Edit</a>
+        </span>
+
+      </td>
+    </tr>
+  </table>
+</div>
+ -->

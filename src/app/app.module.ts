@@ -13,6 +13,12 @@ import { UserCreateComponent } from './prs/user/user-create/user-create.componen
 import { UserEditComponent } from './prs/user/user-edit/user-edit.component';
 import { MenuComponent } from './core/menu/menu.component';
 import { MenuitemComponent } from './core/menuitem/menuitem.component';
+import { SortPipe } from './core/pipes/sort.pipe';
+import { SearchUserPipe } from './core/pipes/search-user.pipe';
+import { VendorListComponent } from './prs/vendor/vendor-list/vendor-list.component';
+import { VendorDetailComponent } from './prs/vendor/vendor-detail/vendor-detail.component';
+import { VendorCreateComponent } from './prs/vendor/vendor-create/vendor-create.component';
+import { VendorEditComponent } from './prs/vendor/vendor-edit/vendor-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import { MenuitemComponent } from './core/menuitem/menuitem.component';
     UserCreateComponent,
     UserEditComponent,
     MenuComponent,
-    MenuitemComponent
+    MenuitemComponent,
+    SortPipe,
+    SearchUserPipe,
+    VendorListComponent,
+    VendorDetailComponent,
+    VendorCreateComponent,
+    VendorEditComponent
   ],
   imports: [
     BrowserModule,

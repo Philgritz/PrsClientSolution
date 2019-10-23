@@ -1,7 +1,7 @@
 <div class="component">
     <div class="header">
-      <span class="pagetitle">User Create</span> 
-      <table class="table table-sm">
+      <span class="pagetitle">User Edit</span> 
+      <table class="table table-sm" *ngIf="user">
           <tr>
             <td>Id:</td>
             <td><input [(ngModel)]="user.id" type="number" disabled></td>

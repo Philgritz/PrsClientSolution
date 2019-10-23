@@ -5,19 +5,20 @@
   <span class="pagetitle">User List</span> |
   <span class="createlink">
     <a routerLink="/users/create">CREATE</a>
-  </span>
+  </span> |
+  <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
   <hr>
   </div>
   <table class="table table-sm">
     <tr class="tableheader">
-      <td>Id</td>
-      <td>Username</td>
-      <td>Full name</td>
-      <td>Reviewer</td>
-      <td>Admin</td>
+      <td><a (click)="sortBy('id')">Id</a></td>
+      <td><a (click)="sortBy('username')">Username</a></td>
+      <td><a (click)="sortBy('lastname')">Full name</a></td>
+      <td><a (click)="sortBy('isReviewer')">Reviewer</a></td>
+      <td><a (click)="sortBy('isAdmin')">Admin</a></td>
       <td>Actions</td>
     </tr>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users | searchUsers:searchCriteria | sort:sortCriteria:sortOrder">
       <td>{{user.id}}</td>
       <td>{{user.username}}</td>
       <td>{{user.firstname}} {{user.lastname}}</td>
