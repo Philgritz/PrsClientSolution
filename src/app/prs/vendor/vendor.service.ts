@@ -10,10 +10,7 @@ const baseUrl = "http://localhost:52245/api/vendors";
 })
 export class VendorService {
 
-  login(username: string, password: string): Observable<Vendor> | Observable<null> {
-    return this.http.get(`${baseUrl}/${username}/${password}`) as Observable<Vendor>;
-  }
-
+  
   list(): Observable<Vendor[]> {
     return this.http.get(`${baseUrl}`) as Observable<Vendor[]>;
   }
