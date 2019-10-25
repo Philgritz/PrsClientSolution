@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product.class';
+import { VendorService } from '../../vendor/vendor.service';
+import { Vendor } from '../../vendor/vendor.class';
+
 
 @Component({
   selector: 'app-product-edit',
@@ -11,11 +14,13 @@ import { Product } from '../product.class';
 export class ProductEditComponent implements OnInit {
 
   product: Product;
+  vendors: Vendor[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productsvc: ProductService
+    private productsvc: ProductService,
+    private vendorsvc: VendorService
   ) { }
 
   save(): void {
@@ -35,6 +40,11 @@ export class ProductEditComponent implements OnInit {
         console.log("Product:", product); 
       }
       ,err => { console.error(err); }
+    );
+    this.vendorsvc.list().subscribe(
+      vendors => {
+        this.vendors = vendors;
+      }
     );
   }
 
