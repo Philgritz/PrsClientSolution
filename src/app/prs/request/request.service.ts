@@ -10,22 +10,26 @@ const baseUrl = "http://localhost:52245/api/requests";
 })
 export class RequestService {
 
+  setreview(id: string): Observable<Request> | Observable<null> {
+    return this.http.put(`${baseUrl}/review/${id}`, null) as Observable<Request>;
+  }
+
   list(): Observable<Request[]> {
     return this.http.get(`${baseUrl}`) as Observable<Request[]>;
   }
   get(id: string): Observable<Request> {
     return this.http.get(`${baseUrl}/${id}`) as Observable<Request>;
   }
-  create(product: Request): Observable<any> {  //returns any type
-    return this.http.post(`${baseUrl}`, product) as Observable<any>;
+  create(request: Request): Observable<any> {  //returns any type
+    return this.http.post(`${baseUrl}`, request) as Observable<any>;
     
   }
-  change(product: Request): Observable<any> { 
-    return this.http.put(`${baseUrl}/${product.id}`, product) as Observable<any>; //put id on url and pass in user in body
+  change(request: Request): Observable<any> { 
+    return this.http.put(`${baseUrl}/${request.id}`, request) as Observable<any>; //put id on url and pass in user in body
     
   }
-  remove(product: Request): Observable<any> { 
-    return this.http.delete(`${baseUrl}/${product.id}`) as Observable<any>; 
+  remove(request: Request): Observable<any> { 
+    return this.http.delete(`${baseUrl}/${request.id}`) as Observable<any>; 
     
   }
 

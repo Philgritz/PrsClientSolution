@@ -9,6 +9,9 @@ const baseUrl = "http://localhost:52245/api/users";
   providedIn: 'root'
 })
 export class UserService {
+  //returns user or instance or null.  then store user in system service --> 
+  //setUser(user.User) {this._loggedInUser = user;}
+  //after call need to subscribe to results
 
   login(username: string, password: string): Observable<User> | Observable<null> {
     return this.http.get(`${baseUrl}/${username}/${password}`) as Observable<User>;

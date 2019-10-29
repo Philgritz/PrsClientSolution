@@ -7,6 +7,7 @@ import { UserListComponent } from './prs/user/user-list/user-list.component';
 import { UserCreateComponent } from './prs/user/user-create/user-create.component';
 import { UserDetailComponent } from './prs/user/user-detail/user-detail.component';
 import { UserEditComponent } from './prs/user/user-edit/user-edit.component';
+import { UserLoginComponent } from './prs/user/user-login/user-login.component';
 
 //vendors
 import { VendorListComponent } from './prs/vendor/vendor-list/vendor-list.component';
@@ -26,16 +27,21 @@ import { RequestCreateComponent } from './prs/request/request-create/request-cre
 import { RequestDetailComponent } from './prs/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './prs/request/request-edit/request-edit.component';
 
+//request review
+import { RequestReviewItemComponent } from './prs/request/request-review-item/request-review-item.component';
+import { RequestReviewListComponent } from './prs/request/request-review-list/request-review-list.component';
+
 
 const routes: Routes = [
   
   //users
-  { path: '', redirectTo: '/users/list', pathMatch: 'full'},
+  { path: '', redirectTo: '/users/list', pathMatch: 'full'},  //change to point to login
 
   { path:'users/list', component: UserListComponent },
   { path:'users/create', component: UserCreateComponent },
   { path:'users/detail/:id', component: UserDetailComponent },
   { path:'users/edit/:id', component: UserEditComponent },
+  { path:'login', component: UserLoginComponent },
 
   //vendors
   { path: '', redirectTo: '/vendors/list', pathMatch: 'full'},
@@ -60,6 +66,9 @@ const routes: Routes = [
   { path:'requests/create', component: RequestCreateComponent },
   { path:'requests/detail/:id', component: RequestDetailComponent },
   { path:'requests/edit/:id', component: RequestEditComponent },
+  //request review
+  { path:'requests/review/list', component: RequestReviewListComponent },
+  { path:'requests/review/item/:id', component: RequestReviewItemComponent },
 
 
   { path: '**', component: FourOhFourComponent }

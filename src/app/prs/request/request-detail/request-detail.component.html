@@ -1,3 +1,56 @@
-<p>
-  request-detail works!
-</p>
+<div class="component">
+    <div class="header">
+      <span class="pagetitle">Request Detail</span> |
+      <span><a routerLink="/requests/list">BacktoList</a></span>
+    </div>
+    <table class="table table-sm" *ngIf="request">
+      <tr>
+        <td>Id:</td>
+        <td>{{request.id}}</td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td>{{request.description}}</td>
+      </tr>
+      <tr>
+        <td>Justification:</td>
+        <td>{{request.justification}}</td>
+      </tr>
+      <tr>
+        <td>ReasonRejection:</td>
+        <td>{{request.reasonRejection}}</td>
+      </tr>
+      <tr>
+        <td>DeliveryMode:</td>
+        <td>{{request.deliveryMode}}</td>
+      </tr>
+      <tr>
+        <td>Status:</td>
+        <td>{{request.status}}</td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+        <td>{{request.total}}</td>
+      </tr>
+      <tr>
+        <td>UserId:</td>
+        <td>{{request.userId}}</td>
+      </tr>
+      <tr>
+        <td>User:</td>
+        <td>{{request.user.firstname}}</td>
+      </tr>
+    </table>
+    <span>
+      <button (click)="edit()" class="btn btn-warning btn-sm">Edit</button>
+      <button (click)="verify()" class="btn btn-danger btn-sm">Delete</button>
+      <span *ngIf="verifyDelete">
+        <button (click)="delete()" class="btn btn-danger btn-sm">Verify</button>
+      </span>
+      <span *ngIf="request.status !== 'REVIEW'">
+        <button (click)="setasreview()" class="btn btn-success btn-sm">SetasReview</button>
+      </span>
+    </span>
+  </div>
+    
+  

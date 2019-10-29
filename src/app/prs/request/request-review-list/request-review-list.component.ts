@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
+import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 
 @Component({
-  selector: 'app-request-list',
-  templateUrl: './request-list.component.html',
-  styleUrls: ['./request-list.component.css']
+  selector: 'app-request-review-list',
+  templateUrl: './request-review-list.component.html',
+  styleUrls: ['./request-review-list.component.css']
 })
-export class RequestListComponent implements OnInit {
+export class RequestReviewListComponent implements OnInit {
 
   requests: Request[] = [];
   sortCriteria: string = "lastname";
@@ -27,7 +28,7 @@ export class RequestListComponent implements OnInit {
 
   ngOnInit() {
     this.requestsvc.list().subscribe(
-      xxx => {
+      xxx => { 
         this.requests = xxx;
         console.log("Requests-", xxx);
       },

@@ -9,6 +9,8 @@ export class Request {
     deliveryMode: string;
     status: string;
     total: number = 0;
+    userId: number = 0;
+    user: string;
     
     constructor(){}
 }

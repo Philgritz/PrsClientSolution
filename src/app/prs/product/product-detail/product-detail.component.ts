@@ -34,6 +34,7 @@ export class ProductDetailComponent implements OnInit {
       },
       err => console.error(err)
     );
+    
   }
 
   ngOnInit() {
