@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user.class';
+import { SystemService } from '../../system/system.service';
+import { clearModulesForTest } from '@angular/core/src/linker/ng_module_factory_loader';
+
 
 @Component({
   selector: 'app-user-login',
@@ -28,7 +31,8 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private usersvc: UserService
+    private usersvc: UserService,
+    private syssvc: SystemService
   ) { }
 
  
@@ -37,6 +41,21 @@ export class UserLoginComponent implements OnInit {
     this.usersvc.login(this.username, this.password).subscribe(
       res => { 
       console.log("Res from userlogin:", res); 
+
+    this.syssvc.setUser(res)
+
+      
+      //res will have user instance in it.  
+      //use res to set user to store user in system service as a parameter when you call setUser.
+      //once user is set, you can navigate wherever you want to go. 
+      //need to inject SS into all other components, set local property in component to getUser.
+
+
+
+
+
+      
+      this.router.navigateByUrl("/requests/list");
       
     }
 
@@ -44,16 +63,8 @@ export class UserLoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
 }
 
-// ngOnInit() {
-//   let userid = this.route.snapshot.params.id;   //how to pull id
-//   this.usersvc.get(userid).subscribe(
-//     user => { 
-//       this.user = user;
-//       this.password2 = this.user.password; 
-//       console.log("User:", user); }
-//     ,err => { console.error(err); }
-//   );

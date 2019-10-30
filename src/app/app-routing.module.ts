@@ -35,7 +35,7 @@ import { RequestReviewListComponent } from './prs/request/request-review-list/re
 const routes: Routes = [
   
   //users
-  { path: '', redirectTo: '/users/list', pathMatch: 'full'},  //change to point to login
+  { path: '', redirectTo: '/login', pathMatch: 'full'},  //change to point to login
 
   { path:'users/list', component: UserListComponent },
   { path:'users/create', component: UserCreateComponent },

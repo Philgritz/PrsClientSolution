@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-request-review-item',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class RequestReviewItemComponent implements OnInit {
 
   constructor() { }
+  
+  private syssvc: SystemService
 
   ngOnInit() {
   }

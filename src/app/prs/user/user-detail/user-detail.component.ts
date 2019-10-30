@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from '../user.service';
 import { User} from '../user.class';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -18,7 +19,8 @@ export class UserDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private usersvc: UserService
+    private usersvc: UserService,
+    private syssvc: SystemService
   ) { }
 
   edit(): void {

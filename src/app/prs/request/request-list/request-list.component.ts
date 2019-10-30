@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
+import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-request-list',
@@ -9,6 +11,7 @@ import { Request } from '../request.class';
 })
 export class RequestListComponent implements OnInit {
 
+ 
   requests: Request[] = [];
   sortCriteria: string = "lastname";
   sortOrder: string = "desc";
@@ -22,7 +25,8 @@ export class RequestListComponent implements OnInit {
   }
 
   constructor(
-    private requestsvc: RequestService
+    private requestsvc: RequestService,
+    private syssvc: SystemService
   ) { }
 
   ngOnInit() {
@@ -35,6 +39,7 @@ export class RequestListComponent implements OnInit {
         console.error(err);
       }
     );
+
   }
 
 }

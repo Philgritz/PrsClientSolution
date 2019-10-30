@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { VendorService } from '../vendor.service';
 import { Vendor} from '../vendor.class';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-vendor-detail',
@@ -17,7 +18,8 @@ export class VendorDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private vendorsvc: VendorService
+    private vendorsvc: VendorService,
+    private syssvc: SystemService
   ) { }
 
   edit(): void {

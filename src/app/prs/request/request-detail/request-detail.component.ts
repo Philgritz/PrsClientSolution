@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { RequestService } from '../request.service';
 import { Request} from '../request.class';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-request-detail',
@@ -18,7 +19,8 @@ export class RequestDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private requestsvc: RequestService
+    private requestsvc: RequestService,
+    private syssvc: SystemService
   ) { }
 
   setasreview(): void {

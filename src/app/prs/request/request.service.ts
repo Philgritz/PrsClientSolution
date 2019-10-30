@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Request } from './request.class';
+import { SystemService } from '../system/system.service';
 
 const baseUrl = "http://localhost:52245/api/requests";
 
@@ -32,6 +33,20 @@ export class RequestService {
     return this.http.delete(`${baseUrl}/${request.id}`) as Observable<any>; 
     
   }
+  // reviews(user: User): Observable<Request> {
 
-  constructor(private http: HttpClient) { }
+  // }
+  // approve(request: Request): Observable<any> {
+    
+  // }
+  reject(request: Request): Observable<Request[]> {
+    return this.http.put(`${baseUrl}/reject/${request.id}`, request) as Observable<any>;
+  }
+
+  constructor(
+    private syssvc: SystemService,
+    private http: HttpClient
+    ) {
+//this.baseUrl = `${syssvc.baseUrl/api/requests}`;
+     }
 }

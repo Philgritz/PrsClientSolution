@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from './menu.class';
+import { SystemService } from '../../prs/system/system.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,6 +18,7 @@ export class MenuComponent implements OnInit {
     { display: 'Reviews', link: '/requests/review/list', tip: 'Requests to be reviewed'},
     { display: 'About', link: '/about', tip: 'About me'},
     { display: 'Login/out', link: '/login', tip: 'Login'}
+    //{ display: 'Logged in User', }
   ];
 
   constructor() { }

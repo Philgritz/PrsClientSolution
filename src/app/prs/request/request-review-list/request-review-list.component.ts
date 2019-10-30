@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
 import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-request-review-list',
@@ -23,7 +24,8 @@ export class RequestReviewListComponent implements OnInit {
   }
 
   constructor(
-    private requestsvc: RequestService
+    private requestsvc: RequestService,
+    private syssvc: SystemService
   ) { }
 
   ngOnInit() {
