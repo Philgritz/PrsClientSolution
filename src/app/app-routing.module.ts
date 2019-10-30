@@ -26,6 +26,7 @@ import { RequestListComponent } from './prs/request/request-list/request-list.co
 import { RequestCreateComponent } from './prs/request/request-create/request-create.component';
 import { RequestDetailComponent } from './prs/request/request-detail/request-detail.component';
 import { RequestEditComponent } from './prs/request/request-edit/request-edit.component';
+import { RequestLinesComponent } from './prs/request/request-lines/request-lines.component';
 
 //request review
 import { RequestReviewItemComponent } from './prs/request/request-review-item/request-review-item.component';
@@ -66,6 +67,7 @@ const routes: Routes = [
   { path:'requests/create', component: RequestCreateComponent },
   { path:'requests/detail/:id', component: RequestDetailComponent },
   { path:'requests/edit/:id', component: RequestEditComponent },
+  { path:'requests/lines/:id', component: RequestLinesComponent },
   //request review
   { path:'requests/review/list', component: RequestReviewListComponent },
   { path:'requests/review/item/:id', component: RequestReviewItemComponent },

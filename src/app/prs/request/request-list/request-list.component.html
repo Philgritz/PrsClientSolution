@@ -12,9 +12,6 @@
     <tr class="tableheader">
       <td><a (click)="sortBy('id')">Id</a></td>
       <td><a (click)="sortBy('description')">Description</a></td>
-      <td><a (click)="sortBy('justification')">Justification</a></td>
-      <td><a (click)="sortBy('reasonRejection')">ReasonRejection</a></td>
-      <td><a (click)="sortBy('deliveryMode')">DeliveryMode</a></td>
       <td><a (click)="sortBy('status')">Status</a></td>
       <td><a (click)="sortBy('total')">Total</a></td>
       <td>Actions</td>
@@ -22,15 +19,13 @@
     <tr *ngFor="let request of requests | searchRequests:searchCriteria | sort:sortCriteria:sortOrder">
       <td>{{request.id}}</td>
       <td>{{request.description}}</td>
-      <td>{{request.justification}}</td>
-      <td>{{request.reasonRejection}}</td>
-      <td>{{request.deliveryMode}}</td>
       <td>{{request.status}}</td>
       <td>{{request.total}}</td>
       <td>
         <span class="actions">
           <a routerLink="/requests/detail/{{request.id}}">Detail</a> |
-          <a routerLink="/requests/edit/{{request.id}}">Edit</a>
+          <a routerLink="/requests/edit/{{request.id}}">Edit</a> |
+          <a routerLink="/requests/lines/{{request.id}}">Lines</a>
         </span>
 
       </td>

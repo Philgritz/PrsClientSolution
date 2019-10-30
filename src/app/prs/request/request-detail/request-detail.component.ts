@@ -35,7 +35,7 @@ export class RequestDetailComponent implements OnInit {
   }
 
   edit(): void {
-    this.router.navigateByUrl(`/request/edit/${this.request.id}`);
+    this.router.navigateByUrl(`/requests/edit/${this.request.id}`);
   }
   verify(): void {
     this.verifyDelete = !this.verifyDelete;
