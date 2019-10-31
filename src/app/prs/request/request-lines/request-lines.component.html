@@ -24,7 +24,7 @@
       <td>{{request.id}}</td>
       <td>{{request.description}}</td>
       <td>{{request.status}}</td>
-      <td>{{request.total}}</td>
+      <td>{{request.total | currency}}</td>
       <td>{{request.user.username}}</td>
       
     </tr>
@@ -46,12 +46,12 @@
         <td>{{line.product.id}}</td>
         <td>{{line.product.name}}</td>
         <td>{{line.quantity}}</td>
-        <td>{{line.product.price}}</td>
-        <td>{{line.quantity*line.product.price}}</td>
+        <td>{{line.product.price | currency}}</td>
+        <td>{{line.quantity*line.product.price | currency}}</td>
         <td>
           <span class="actions">
-            <a routerLink="/requests/edit/{{request.id}}">Edit</a> |
-            <a routerLink="/requests/lines/{{request.id}}">Delete (Not yet functional)</a>
+              <a routerLink="/requestlines/edit/{{line.id}}">Edit</a> | 
+            <a routerLink="this.requestsvc.remove(request.id)">Delete Not yet functional</a>
           </span>
   
         </td>

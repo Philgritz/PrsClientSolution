@@ -26,7 +26,7 @@
       <td>{{request.reasonRejection}}</td>
       <td>{{request.deliveryMode}}</td>
       <td>{{request.status}}</td>
-      <td>{{request.total}}</td>
+      <td>{{request.total | currency}}</td>
       <td>
         <span class="actions">
           <a routerLink="/requests/detail/{{request.id}}">Detail</a> |

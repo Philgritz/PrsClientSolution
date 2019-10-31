@@ -4,6 +4,8 @@ import { Request } from '../request.class';
 import { SystemService } from '../../system/system.service';
 import { User } from '../../user/user.class';
 import { ActivatedRoute } from '@angular/router';
+import { RequestlineService } from '../../requestline/requestline.service';
+
 
 @Component({
   selector: 'app-request-lines',
@@ -12,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RequestLinesComponent implements OnInit {
 
+  
   request: Request;
   requests: Request[] = [];
   sortCriteria: string = "lastname";
@@ -28,8 +31,19 @@ export class RequestLinesComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private requestsvc: RequestService,
-    private syssvc: SystemService
+    private syssvc: SystemService,
+    
   ) { }
+
+  delete(): void {
+    this.requestsvc.remove(this.request).subscribe(
+      res => {
+        console.log("Request delete res:", res);
+        //this.router.navigateByUrl("/requests/list");
+      },
+      err => console.error(err)
+    );
+  }
 
   ngOnInit() {
 
@@ -41,6 +55,8 @@ export class RequestLinesComponent implements OnInit {
       },
       err => { console.error(err); }
     );
+
+ 
 
 
 

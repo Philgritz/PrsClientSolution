@@ -32,6 +32,10 @@ import { RequestLinesComponent } from './prs/request/request-lines/request-lines
 import { RequestReviewItemComponent } from './prs/request/request-review-item/request-review-item.component';
 import { RequestReviewListComponent } from './prs/request/request-review-list/request-review-list.component';
 
+//requestlines
+import { RequestlineCreateComponent } from './prs/requestline/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './prs/requestline/requestline-edit/requestline-edit.component';
+
 
 const routes: Routes = [
   
@@ -71,6 +75,10 @@ const routes: Routes = [
   //request review
   { path:'requests/review/list', component: RequestReviewListComponent },
   { path:'requests/review/item/:id', component: RequestReviewItemComponent },
+  
+  //requestlines
+  { path:'requestlines/create', component: RequestlineCreateComponent },
+  { path:'requestlines/edit/:id', component: RequestlineEditComponent },
 
 
   { path: '**', component: FourOhFourComponent }
