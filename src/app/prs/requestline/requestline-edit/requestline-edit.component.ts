@@ -41,6 +41,8 @@ export class RequestlineEditComponent implements OnInit {
       }
       ,err => { console.error(err); }
     );
+
+    
     this.productsvc.list().subscribe(
       products => {
         this.products = products;

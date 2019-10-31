@@ -77,7 +77,7 @@ const routes: Routes = [
   { path:'requests/review/item/:id', component: RequestReviewItemComponent },
   
   //requestlines
-  { path:'requestlines/create', component: RequestlineCreateComponent },
+  { path:'requestlines/create/:id', component: RequestlineCreateComponent },
   { path:'requestlines/edit/:id', component: RequestlineEditComponent },
 
 

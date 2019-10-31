@@ -5,7 +5,7 @@
   <div class="header">
   <span class="pagetitle">Request LINES (req list template)</span> |
   <span class="createlink">
-    <a routerLink="/requests/create">CREATE</a>
+    <a routerLink="/requestlines/create/{{request.id}}">CREATE</a>
   </span> |
   <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
   <hr>
@@ -34,7 +34,7 @@
 <!-- REQUESTLINES TABLE FOR THIS REQUEST -->
   <table class="table table-sm">
       <tr class="tableheader">
-        <td><a (click)="sortBy('id')">Id</a></td>
+        <td><a (click)="sortBy('id')">Product Id</a></td>
         <td><a (click)="sortBy('product')">Product</a></td>
         <td><a (click)="sortBy('quantity')">Quantity</a></td>
         <td><a (click)="sortBy('price')">Price</a></td>
@@ -50,7 +50,7 @@
         <td>{{line.quantity*line.product.price | currency}}</td>
         <td>
           <span class="actions">
-              <a routerLink="/requestlines/edit/{{line.id}}">Edit</a> | 
+            <a routerLink="/requestlines/edit/{{line.id}}">Edit</a> | 
             <a routerLink="this.requestsvc.remove(request.id)">Delete Not yet functional</a>
           </span>
   

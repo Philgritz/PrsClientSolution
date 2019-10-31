@@ -1,3 +1,32 @@
-<p>
-  requestline-create works!
-</p>
+<p>REQUESTLINE CREATE WORKS</p>
+
+
+  <!-- NEEDS EDITING -->
+<div class="component">
+    <div class="header">
+      <span class="pagetitle">Requestline CREATE</span> 
+      <table class="table table-sm" *ngIf="requestline">
+          <tr>
+            <td>RequestId:</td>
+            <td><input [(ngModel)]="requestline.requestId" type="number" disabled></td>
+          </tr>
+          <tr>
+            <td>Quantity:</td>
+            <td><input [(ngModel)]="requestline.quantity" type="number"></td>
+          </tr>
+          
+          <tr>
+            <td>Product:</td>
+            <td><select [(ngModel)]="requestline.productId">
+                  <option *ngFor="let product of products" [ngValue]="product.id">
+                    {{product.name}}
+                  </option>
+                </select>
+            </td>
+          </tr>
+       
+        </table>
+        <button (click)="save()" class="btn btn-primary btn-sm">SAVE</button>
+    </div>
+  
+  </div>
