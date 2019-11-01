@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
-import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component({
   selector: 'app-request-review-list',
@@ -11,6 +11,10 @@ import { SystemService } from '../../system/system.service';
 })
 export class RequestReviewListComponent implements OnInit {
 
+  user: User;
+  request: Request;
+  loggedinname: User;
+  loggedinusername: string;
   requests: Request[] = [];
   sortCriteria: string = "lastname";
   sortOrder: string = "desc";
@@ -38,6 +42,24 @@ export class RequestReviewListComponent implements OnInit {
         console.error(err);
       }
     );
+    
+
+    this.syssvc.checkLogin(this.loggedinname);
+    
+    this.request.userId = this.syssvc.loggedinuser.id;
+    this.loggedinusername = this.syssvc.loggedinuser.username;
+
+  
+    
+
+
+
+
+
+
+
+
+
   }
 
 }

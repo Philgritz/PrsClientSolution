@@ -5,6 +5,7 @@ import { SystemService } from '../../system/system.service';
 import { User } from '../../user/user.class';
 import { ActivatedRoute } from '@angular/router';
 import { RequestlineService } from '../../requestline/requestline.service';
+import { Requestline } from '../../requestline/requestline.class';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { RequestlineService } from '../../requestline/requestline.service';
 })
 export class RequestLinesComponent implements OnInit {
 
-  
+  requestline: Requestline;
   request: Request;
   requests: Request[] = [];
   sortCriteria: string = "lastname";
@@ -32,22 +33,32 @@ export class RequestLinesComponent implements OnInit {
     private route: ActivatedRoute,
     private requestsvc: RequestService,
     private syssvc: SystemService,
+    private requestlinesvc: RequestlineService
     
   ) { }
 
-  delete(): void {
-    this.requestsvc.remove(this.request).subscribe(
-      res => {
-        console.log("Request delete res:", res);
-        //this.router.navigateByUrl("/requests/list");
-      },
-      err => console.error(err)
+  //delete RL
+  delete(line: Requestline): void {
+    
+    this.requestlinesvc.remove(line).subscribe(
+
+      // this.requestsvc.refresh(requestid).subscribe(
+      //   request => {
+      //     this.request = request;
+      //   }
+
+      // )
+      
+
+
+
     );
   }
 
   ngOnInit() {
 
     let requestid = this.route.snapshot.params.id;  //read route for id, read db for user
+    
     this.requestsvc.get(requestid).subscribe(
       request => {
         this.request = request;
@@ -58,18 +69,6 @@ export class RequestLinesComponent implements OnInit {
 
  
 
-
-
-
-    // this.requestsvc.list().subscribe(
-    //   xxx => {
-    //     this.requests = xxx;
-    //     console.log("Requests-", xxx);
-    //   },
-    //   err => {
-    //     console.error(err);
-    //   }
-    // );
 
   }
 

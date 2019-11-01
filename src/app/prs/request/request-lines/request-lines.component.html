@@ -51,9 +51,11 @@
         <td>
           <span class="actions">
             <a routerLink="/requestlines/edit/{{line.id}}">Edit</a> | 
-            <a routerLink="this.requestsvc.remove(request.id)">Delete Not yet functional</a>
+            <!-- delete with click -->
+            <a (click)="delete(line)">Delete</a> 
+
           </span>
-  
+          
         </td>
       </tr>
     </table>

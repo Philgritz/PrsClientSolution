@@ -11,6 +11,8 @@ const baseUrl = "http://localhost:52245/api/requests";
 })
 export class RequestService {
 
+  refresh(id: string){}
+
   setreview(id: string): Observable<Request> | Observable<null> {
     return this.http.put(`${baseUrl}/review/${id}`, null) as Observable<Request>;
   }

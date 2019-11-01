@@ -20,17 +20,16 @@
       <td>Actions</td>
     </tr>
     <tr *ngFor="let request of requests | searchRequests:searchCriteria | sort:sortCriteria:sortOrder">
-      <td>{{request.id}}</td>
-      <td>{{request.description}}</td>
-      <td>{{request.justification}}</td>
-      <td>{{request.reasonRejection}}</td>
-      <td>{{request.deliveryMode}}</td>
-      <td>{{request.status}}</td>
-      <td>{{request.total | currency}}</td>
-      <td>
+      <td *ngIf="request.status == 'REVIEW'">{{request.id}}</td>
+      <td *ngIf="request.status == 'REVIEW'">{{request.description}}</td>
+      <td *ngIf="request.status == 'REVIEW'">{{request.justification}}</td>
+      <td *ngIf="request.status == 'REVIEW'">{{request.reasonRejection}}</td>
+      <td *ngIf="request.status == 'REVIEW'">{{request.deliveryMode}}</td>
+      <td *ngIf="request.status == 'REVIEW'">{{request.status}}</td>
+      <td *ngIf="request.status == 'REVIEW'">{{request.total | currency}}</td>
+      <td *ngIf="request.status == 'REVIEW'">
         <span class="actions">
-          <a routerLink="/requests/detail/{{request.id}}">Detail</a> |
-          <a routerLink="/requests/edit/{{request.id}}">Edit</a>
+          <a routerLink="/requests/review/item/{{request.id}}">REVIEW</a> 
         </span>
 
       </td>
