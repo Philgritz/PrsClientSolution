@@ -1,12 +1,10 @@
-<p>REQUEST ITEM REVIEW WORKS</p>
+
 
 <app-menu></app-menu>
 <div class="component">
   <div class="header">
-  <span class="pagetitle">Request LINES (req list template)</span> |
-  <span class="createlink">
-    <a routerLink="/requestlines/create/{{request.id}}">CREATE</a>
-  </span> |
+  <span class="pagetitle">REQUEST ITEM REVIEW</span> |
+  
   <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
   <hr>
   </div>
@@ -54,8 +52,14 @@
 
     <button (click)="setasapproved()" class="btn btn-success btn-sm">APPROVE</button>
 
-    <button (click)="setasrejected()" class="btn btn-danger btn-sm">REJECT</button>
-  
+    <button [hidden]="request.reasonRejection == null || request.reasonRejection == ''" (click)="setasrejected()" class="btn btn-danger btn-sm">REJECT</button>
+
+    <div>
+    <input [(ngModel)]="request.reasonRejection" type="text" placeholder="Rejection reason">
+    <button (click)="save()" class="btn btn-primary btn-sm">SAVE</button>
+    </div>
+
+    <!-- <button [hidden]="request.reasonRejection == null || request.reasonRejection == ''">DISABLEDBUTTONTEST</button> -->
 
   
 

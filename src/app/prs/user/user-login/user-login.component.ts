@@ -51,13 +51,12 @@ export class UserLoginComponent implements OnInit {
       //need to inject SS into all other components, set local property in component to getUser.
 
 
-
-
-
       
       this.router.navigateByUrl("/requests/list");
       
     }
+    ,err => { console.error(err);}
+    
 
     );
   }

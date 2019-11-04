@@ -58,6 +58,16 @@ export class RequestReviewItemComponent implements OnInit {
       }
     )
   }
+
+  save(): void {
+  
+    this.requestsvc.change(this.request).subscribe(
+      res => { console.log("RejectionReason Provided: ", res); 
+    //this.router.navigateByUrl("/requests/list");
+    }
+    ,err => { console.error(err);}
+    );
+  }
   
   
 

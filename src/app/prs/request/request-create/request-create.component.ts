@@ -36,12 +36,12 @@ export class RequestCreateComponent implements OnInit {
 
     
 
-    // this.syssvc.checkLogin(this.loggedinname);
+    this.syssvc.checkLogin(this.loggedinname);
 
-    // console.log("this logged in name is", this.loggedinname);
+    console.log("this logged in name is", this.loggedinname);
     
     
-    // this.request.userId = this.syssvc.loggedinuser.id;
+    this.request.userId = this.syssvc.loggedinuser.id;
 
     
     this.loggedinusername = this.syssvc.loggedinuser.username;

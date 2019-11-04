@@ -7,7 +7,7 @@ export class Request {
     justification: string;
     reasonRejection: string;
     deliveryMode: string;
-    status: string;
+    status: string = "NEW";
     total: number = 0;
     userId: number = 0;
     user: string;
