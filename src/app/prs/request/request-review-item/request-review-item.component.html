@@ -1,3 +1,64 @@
-<p>
-  request-review-item works!
-</p>
+<p>REQUEST ITEM REVIEW WORKS</p>
+
+<app-menu></app-menu>
+<div class="component">
+  <div class="header">
+  <span class="pagetitle">Request LINES (req list template)</span> |
+  <span class="createlink">
+    <a routerLink="/requestlines/create/{{request.id}}">CREATE</a>
+  </span> |
+  <input class="search" [(ngModel)]="searchCriteria" type="text" placeholder="Search">
+  <hr>
+  </div>
+  <table class="table table-sm">
+    <tr class="tableheader">
+      <td><a (click)="sortBy('id')">Id</a></td>
+      <td><a (click)="sortBy('description')">Description</a></td>
+      <td><a (click)="sortBy('status')">Status</a></td>
+      <td><a (click)="sortBy('total')">Total</a></td>
+      <td><a (click)="sortBy('user')">User</a></td>
+      
+    </tr>
+    <tr>
+    <!-- <tr *ngFor="let request of requests | searchRequests:searchCriteria | sort:sortCriteria:sortOrder"> -->
+      <td>{{request.id}}</td>
+      <td>{{request.description}}</td>
+      <td>{{request.status}}</td>
+      <td>{{request.total | currency}}</td>
+      <td>{{request.user.username}}</td>
+      
+    </tr>
+  </table>
+  <hr>
+  <hr>
+<!-- REQUESTLINES TABLE FOR THIS REQUEST -->
+  <table class="table table-sm">
+      <tr class="tableheader">
+        <td><a (click)="sortBy('id')">Product Id</a></td>
+        <td><a (click)="sortBy('product')">Product</a></td>
+        <td><a (click)="sortBy('quantity')">Quantity</a></td>
+        <td><a (click)="sortBy('price')">Price</a></td>
+        <td><a (click)="sortBy('subtotal')">Subtotal</a></td>
+        
+      </tr>
+      <tr *ngFor="let line of request.requestLines">
+      <!-- <tr *ngFor="let request of requests | searchRequests:searchCriteria | sort:sortCriteria:sortOrder"> -->
+        <td>{{line.product.id}}</td>
+        <td>{{line.product.name}}</td>
+        <td>{{line.quantity}}</td>
+        <td>{{line.product.price | currency}}</td>
+        <td>{{line.quantity*line.product.price | currency}}</td>
+        
+      </tr>
+    </table>
+
+    <button (click)="setasapproved()" class="btn btn-success btn-sm">APPROVE</button>
+
+    <button (click)="setasrejected()" class="btn btn-danger btn-sm">REJECT</button>
+  
+
+  
+
+
+</div>
+

@@ -22,14 +22,14 @@ export class SystemService {
   }
 
   
-  getUser(): User {
-    return this.loggedinuser; 
-  }
-
+  
   setUser(user: User)  {
     this.loggedinuser = user; console.log("logged in setUser Working", this.loggedinuser)
   }
   
+  getUser(): User {
+    return this.loggedinuser; 
+  }
 
 
 

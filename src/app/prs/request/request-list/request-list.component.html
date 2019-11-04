@@ -14,6 +14,8 @@
       <td><a (click)="sortBy('description')">Description</a></td>
       <td><a (click)="sortBy('status')">Status</a></td>
       <td><a (click)="sortBy('total')">Total</a></td>
+
+      <td><a (click)="sortBy('userId')">UserID</a></td>
       <td>Actions</td>
     </tr>
     <tr *ngFor="let request of requests | searchRequests:searchCriteria | sort:sortCriteria:sortOrder">
@@ -21,6 +23,8 @@
       <td>{{request.description}}</td>
       <td>{{request.status}}</td>
       <td>{{request.total | currency}}</td>
+      
+      <td>{{request.userId}}</td>
       <td>
         <span class="actions">
           <a routerLink="/requests/detail/{{request.id}}">Detail</a> |

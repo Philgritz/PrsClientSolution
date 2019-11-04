@@ -1,3 +1,4 @@
+
 <app-menu></app-menu>
 <div class="component">
   <div class="header">
@@ -20,14 +21,14 @@
       <td>Actions</td>
     </tr>
     <tr *ngFor="let request of requests | searchRequests:searchCriteria | sort:sortCriteria:sortOrder">
-      <td *ngIf="request.status == 'REVIEW'">{{request.id}}</td>
-      <td *ngIf="request.status == 'REVIEW'">{{request.description}}</td>
-      <td *ngIf="request.status == 'REVIEW'">{{request.justification}}</td>
-      <td *ngIf="request.status == 'REVIEW'">{{request.reasonRejection}}</td>
-      <td *ngIf="request.status == 'REVIEW'">{{request.deliveryMode}}</td>
-      <td *ngIf="request.status == 'REVIEW'">{{request.status}}</td>
-      <td *ngIf="request.status == 'REVIEW'">{{request.total | currency}}</td>
-      <td *ngIf="request.status == 'REVIEW'">
+      <td *ngIf="request.status == 'REVIEW' && currentuserid !== request.userId">{{request.id}}</td>
+      <td *ngIf="request.status == 'REVIEW' && currentuserid !== request.userId">{{request.description}}</td>
+      <td *ngIf="request.status == 'REVIEW' && currentuserid !== request.userId">{{request.justification}}</td>
+      <td *ngIf="request.status == 'REVIEW' && currentuserid !== request.userId">{{request.reasonRejection}}</td>
+      <td *ngIf="request.status == 'REVIEW' && currentuserid !== request.userId">{{request.deliveryMode}}</td>
+      <td *ngIf="request.status == 'REVIEW' && currentuserid !== request.userId">{{request.status}}</td>
+      <td *ngIf="request.status == 'REVIEW' && currentuserid !== request.userId">{{request.total | currency}}</td>
+      <td *ngIf="request.status == 'REVIEW' && currentuserid !== request.userId">
         <span class="actions">
           <a routerLink="/requests/review/item/{{request.id}}">REVIEW</a> 
         </span>
@@ -35,6 +36,7 @@
       </td>
     </tr>
   </table>
+
 </div>
 
 

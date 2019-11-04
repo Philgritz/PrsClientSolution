@@ -13,9 +13,23 @@ export class RequestService {
 
   refresh(id: string){}
 
+
+  // getbystatusandid(userid: number, status: string): Observable<Request[]> {
+  //   return this.http.get(`${baseUrl}/${userid}/${status}`) as Observable<any>;
+  // }
+
   setreview(id: string): Observable<Request> | Observable<null> {
     return this.http.put(`${baseUrl}/review/${id}`, null) as Observable<Request>;
   }
+
+  setapprove(id: string): Observable<Request> | Observable<null> {
+    return this.http.put(`${baseUrl}/approved/${id}`, null) as Observable<Request>;
+  }
+
+  setreject(id: string): Observable<Request> | Observable<null> {
+    return this.http.put(`${baseUrl}/rejected/${id}`, null) as Observable<Request>;
+  }
+
 
   list(): Observable<Request[]> {
     return this.http.get(`${baseUrl}`) as Observable<Request[]>;
